@@ -134,7 +134,7 @@ window.onclick = function(event) {
 
     $(document).ready(function() {
         $("#contactsOnly").submit(function(event) {
-            event.preventDefault(); // Prevent form from submitting the traditional way
+            event.preventDefault(); 
             $.ajax({
                 url: 'send_email.php',
                 type: 'POST',
@@ -143,7 +143,7 @@ window.onclick = function(event) {
                     $('#formResponse').html(response);
                 },
                 error: function(xhr, status, error) {
-                    $('#formResponseError').html("Email sending failed: " + error);
+                    $('#formResponseError').html("Email sending failed " + error);
                 }
             });
         });
