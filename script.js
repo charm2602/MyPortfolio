@@ -132,5 +132,22 @@ window.onclick = function(event) {
 }
 
 
+    $(document).ready(function() {
+        $("#contactForm").submit(function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+            $.ajax({
+                url: 'send_email.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    $('#formResponse').html(response);
+                },
+                error: function(xhr, status, error) {
+                    $('#formResponse').html("Email sending failed: " + error);
+                }
+            });
+        });
+    });
+
 
 

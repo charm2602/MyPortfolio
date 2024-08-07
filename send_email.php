@@ -27,14 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Content
         $mail->isHTML(false);
-        $mail->Subject = "New Message from $fname $lname " ;
-        $mail->Body    = "Good day, Charm!\n\nYou received a message from $fname$lname. Here are the details: \n\nEmail: $email\nMessage: $message";
+        $mail->Subject = "New Message from $fname $lname";
+        $mail->Body    = "Good day, Charm!\n\nYou received a message from $fname $lname. Here are the details: \n\nEmail: $email\nMessage: $message";
 
         $mail->send();
-        echo "<script>alert('Email successfully sent!');</script>";
+        echo "<p>Email successfully sent!</p>";
     } catch (Exception $e) {
-        echo "<script>alert('Email sending failed: {$mail->ErrorInfo}');</script>";
+        echo "<p>Email sending failed: {$mail->ErrorInfo}</p>";
     }
 } else {
-    echo "<script>alert('Invalid request.');</script>";
+    echo "<p>Invalid request.</p>";
 }
+?>
