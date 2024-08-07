@@ -982,6 +982,15 @@ footer p{
     animation-delay: 0.4s;
   }
   
+  #formResponse{
+    color: green;
+    font-weight: bold;
+  }
+
+  #formResponseError{
+    color: red;
+    font-weight: bold;
+  }
   @keyframes bounce {
     0% {
       transform: translate(0px, -10px);
@@ -1204,5 +1213,7 @@ footer p{
     width: 100%;
     
 }
+
+
     
 }
