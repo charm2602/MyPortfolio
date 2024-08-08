@@ -147,7 +147,7 @@ $(document).ready(function() {
                 $('#formResponse').html(response);
             },
             error: function(xhr, status, error) {
-                $('#formResponseError').html(`<p>Email sending failed: ${error}</p>`);
+                $('#formResponseError').html(`<p>Email sending failed`);
             }
         });
     });
