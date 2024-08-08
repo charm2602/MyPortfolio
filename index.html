@@ -261,7 +261,7 @@
             <div class="inputs">
                 <h2 class="animate__animated">Get in Touch with <span>Me</span></h2>
                 <br>
-                <form class="animate__animated" id = "contactsOnly" action="send_email.js" method="POST">
+                <form class="animate__animated" id = "contactsOnly" action="" method="">
                     <label>First Name</label><br>
                     <input type="text" name="fname" id="box1" required>
                     <br> <br> <br>  
@@ -275,9 +275,9 @@
                     <textarea rows="3" name ="message" cols="50" id="box2" required></textarea> 
                     <br><br><br>
                     <div class="button">
-                        <nobr><input type="submit" name="submit" id = "btn3" value="Submit">
-                        <div id = "formResponse"></div></nobr>
-                        <div id = "formResponseError"></div></nobr>
+                        <input type="submit" name="submit" id = "btn3" value="Submit">
+                        <div id = "formResponse"></div>
+                        <div id = "formResponseError"></div>
                     </div>
                 </form>
             </div>
@@ -320,5 +320,5 @@
     </html>
 </body>
 <script src="script.js"></script>
-<script src="send_email.js"></script>
+
 </html>

@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
-    secure: false, 
+    secure: false,
     auth: {
       user: process.env.GMAIL_USERNAME,
       pass: process.env.GMAIL_PASSWORD,
@@ -36,28 +36,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: `Email sending failed`,
+      body: `Email sending failed: ${error.message}`,
     };
   }
 };
-
-$(document).ready(function() {
-  $("#contactsOnly").submit(function(event) {
-      event.preventDefault();
-      $.ajax({
-          url: '/.netlify/functions/send_email',
-          type: 'POST',
-          data: JSON.stringify($(this).serializeArray().reduce((obj, item) => {
-              obj[item.name] = item.value;
-              return obj;
-          }, {})),
-          contentType: 'application/json; charset=utf-8',
-          success: function(response) {
-              $('#formResponse').html(response);
-          },
-          error: function(xhr, status, error) {
-              $('#formResponseError').html(`<p>Email sending failed`);
-          }
-      });
-  });
-});

@@ -133,24 +133,23 @@ window.onclick = function(event) {
 
 
 $(document).ready(function() {
-    $("#contactsOnly").submit(function(event) {
-        event.preventDefault();
-        $.ajax({
-            url: '/.netlify/functions/send_email',
-            type: 'POST',
-            data: JSON.stringify($(this).serializeArray().reduce((obj, item) => {
-                obj[item.name] = item.value;
-                return obj;
-            }, {})),
-            contentType: 'application/json; charset=utf-8',
-            success: function(response) {
-                $('#formResponse').html(response);
-            },
-            error: function(xhr, status, error) {
-                $('#formResponseError').html(`<p>Email sending failed`);
-            }
-        });
+    $("#contactForm").submit(function(event) {
+      event.preventDefault();
+      $.ajax({
+        url: '/.netlify/functions/send_email',
+        type: 'POST',
+        data: JSON.stringify($(this).serializeArray().reduce((obj, item) => {
+          obj[item.name] = item.value;
+          return obj;
+        }, {})),
+        contentType: 'application/json; charset=utf-8',
+        success: function(response) {
+          $('#formResponse').html(response);
+        },
+        error: function(xhr, status, error) {
+          $('#formResponse').html(`<p>Email sending failed: ${error}</p>`);
+        }
+      });
     });
-});
-
+  });
 
